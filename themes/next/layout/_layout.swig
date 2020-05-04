@@ -57,4 +57,6 @@
     </div>
   {%- endif %}
 </body>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/schemes/clicklove.js"></script>
 </html>
