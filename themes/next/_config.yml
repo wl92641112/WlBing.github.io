@@ -241,12 +241,14 @@ scroll_to_more: true #选取博客正文<!--more-->前的内容
 # Automatically saving scroll position on each post/page in cookies.
 save_scroll: false
 
+auto_excerpt: 
+  enable: true #自动截取一定程度的摘要
+  length: 150
+
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true #自动截取摘要
 
-auto_excerpt: 
-  enable: false #自动截取一定程度的摘要
-  length: 150
+
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
