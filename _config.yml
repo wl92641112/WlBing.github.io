@@ -5,8 +5,8 @@
 # Site
 title: 我的code
 subtitle: 感谢技术带给我们的美好
-description: 保持一颗求知的心！
-keywords: python,健身
+description: 
+keywords: 
 author: 王亮
 language: zh-CN # 主题语言
 timezone: Asia/Shanghai #中国的时区，不要乱改城市
@@ -95,6 +95,27 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: next
 
+
+baidusitemap:
+    path: baidusitemap.xml
+sitemap:
+    path: sitemap.xml
+    template: ./sitemap_template.xml
+    rel: false
+
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
@@ -107,3 +128,34 @@ creative_commons:
   sidebar: true
   post: true
 
+
+
+# 本地搜索
+search:
+  path: search.xml
+  field: post
+  format: html
+  limit: 100
+
+# 博文压缩
+neat_enable: true
+# 压缩html
+neat_html:
+  enable: true
+  exclude:
+# 压缩css  
+neat_css:
+  enable: true
+  exclude:
+    - '**/*.min.css'
+# 压缩js
+neat_js:
+  enable: true
+  mangle: true
+  output:
+  compress:
+  exclude:
+    - '**/*.min.js'
+    - '**/jquery.fancybox.pack.js'
+    - '**/index.js'
+    - '**/fireworks.js'

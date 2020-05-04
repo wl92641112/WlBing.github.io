@@ -117,7 +117,7 @@ darkmode: false
 # External url should start with http:// or https://
 menu: #设置博客各个页面的相对路径，默认根路径是blog/source
   home: / || fa fa-home   # 首 页
-  about: /about/ || fa fa-user # 关于
+  # about: /about/ || fa fa-user # 关于
   tags: /tags/ || fa fa-tags  # 标签
   categories: /categories/ || fa fa-th  # 分类
   archives: /archives/ || fa fa-archive # 归档
@@ -597,10 +597,10 @@ comments:
 
 # Disqus
 disqus:
-  enable: false
-  shortname:
+  enable: true
+  shortname: 
   count: true
-  #post_meta_order: 0
+  # post_meta_order: 0
 
 # DisqusJS
 # Alternative Disqus - Render comment component using Disqus API.
@@ -755,7 +755,7 @@ algolia_search:
 # Local Search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # If auto, trigger search by changing input.
   # If manual, trigger search by pressing enter key or search button.
   trigger: auto
