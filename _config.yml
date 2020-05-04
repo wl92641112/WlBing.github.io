@@ -101,3 +101,9 @@ deploy:
   type: git
   repo: https://github.com/wl92641112/wl92641112.github.io.git
   branch: master
+
+creative_commons:
+  license: by-nc-sa
+  sidebar: true
+  post: true
+
