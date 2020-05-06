@@ -28,7 +28,7 @@
 <meta property="og:description" content="1. DataFrame概述">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-05T16:08:09.000Z">
-<meta property="article:modified_time" content="2020-05-05T16:20:22.879Z">
+<meta property="article:modified_time" content="2020-05-05T17:01:37.469Z">
 <meta property="article:author" content="王亮">
 <meta property="article:tag" content="Spark">
 <meta property="article:tag" content="DataFrame">
@@ -218,7 +218,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-05-06 00:08:09 / 修改时间：00:20:22" itemprop="dateCreated datePublished" datetime="2020-05-06T00:08:09+08:00">2020-05-06</time>
+              <time title="创建时间：2020-05-06 00:08:09 / 修改时间：01:01:37" itemprop="dateCreated datePublished" datetime="2020-05-06T00:08:09+08:00">2020-05-06</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -242,7 +242,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>13</span>
+              <span>197</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -261,6 +261,10 @@
 
       
         <h1 id="1-DataFrame概述"><a href="#1-DataFrame概述" class="headerlink" title="1. DataFrame概述"></a>1. DataFrame概述</h1><a id="more"></a>
+
+<h1 id="2-DataFrame保存"><a href="#2-DataFrame保存" class="headerlink" title="2. DataFrame保存"></a>2. DataFrame保存</h1><h1 id="3-DataFrame创建"><a href="#3-DataFrame创建" class="headerlink" title="3. DataFrame创建"></a>3. DataFrame创建</h1><h1 id="4-DataFrame常用操作"><a href="#4-DataFrame常用操作" class="headerlink" title="4. DataFrame常用操作"></a>4. DataFrame常用操作</h1><h2 id="1-创建一个上下文对象"><a href="#1-创建一个上下文对象" class="headerlink" title="1.   创建一个上下文对象"></a>1.   创建一个上下文对象</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conf =  SparkConf().setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"My App"</span>)  <span class="comment"># scpark 配置 local 单机模式</span></span><br><span class="line">sc = SparkContext(conf=conf)  <span class="comment"># 创建saprkConttext  上下文对象</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-读取json文件"><a href="#2-读取json文件" class="headerlink" title="2.  读取json文件"></a>2.  读取json文件</h2>
     </div>
 
     
@@ -306,6 +310,13 @@
 
 
         
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/06/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="next" title="python正则表达式">
+      python正则表达式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
     
   </article>
@@ -363,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-DataFrame概述"><span class="nav-number">1.</span> <span class="nav-text">1. DataFrame概述</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-DataFrame概述"><span class="nav-number">1.</span> <span class="nav-text">1. DataFrame概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-DataFrame保存"><span class="nav-number">2.</span> <span class="nav-text">2. DataFrame保存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-DataFrame创建"><span class="nav-number">3.</span> <span class="nav-text">3. DataFrame创建</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-DataFrame常用操作"><span class="nav-number">4.</span> <span class="nav-text">4. DataFrame常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-创建一个上下文对象"><span class="nav-number">4.1.</span> <span class="nav-text">1.   创建一个上下文对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-读取json文件"><span class="nav-number">4.2.</span> <span class="nav-text">2.  读取json文件</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -379,20 +390,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

@@ -3,7 +3,11 @@
   <entry>
     <title>Spark之DataFrame操作(python版本)</title>
     <url>/2020/05/06/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/</url>
-    <content><![CDATA[<h1 id="1-DataFrame概述"><a href="#1-DataFrame概述" class="headerlink" title="1. DataFrame概述"></a>1. DataFrame概述</h1><a id="more"></a>]]></content>
+    <content><![CDATA[<h1 id="1-DataFrame概述"><a href="#1-DataFrame概述" class="headerlink" title="1. DataFrame概述"></a>1. DataFrame概述</h1><a id="more"></a>
+
+<h1 id="2-DataFrame保存"><a href="#2-DataFrame保存" class="headerlink" title="2. DataFrame保存"></a>2. DataFrame保存</h1><h1 id="3-DataFrame创建"><a href="#3-DataFrame创建" class="headerlink" title="3. DataFrame创建"></a>3. DataFrame创建</h1><h1 id="4-DataFrame常用操作"><a href="#4-DataFrame常用操作" class="headerlink" title="4. DataFrame常用操作"></a>4. DataFrame常用操作</h1><h2 id="1-创建一个上下文对象"><a href="#1-创建一个上下文对象" class="headerlink" title="1.   创建一个上下文对象"></a>1.   创建一个上下文对象</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">conf =  SparkConf().setMaster(<span class="string">"local"</span>).setAppName(<span class="string">"My App"</span>)  <span class="comment"># scpark 配置 local 单机模式</span></span><br><span class="line">sc = SparkContext(conf=conf)  <span class="comment"># 创建saprkConttext  上下文对象</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-读取json文件"><a href="#2-读取json文件" class="headerlink" title="2.  读取json文件"></a>2.  读取json文件</h2>]]></content>
       <categories>
         <category>Spark</category>
       </categories>
@@ -11,6 +15,18 @@
         <tag>Spark</tag>
         <tag>DataFrame</tag>
         <tag>PySpark</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python正则表达式</title>
+    <url>/2020/05/06/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1.正则表达式 - (?!), (?:), (?=)"></a>1.正则表达式 - (?!), (?:), (?=)</h1>]]></content>
+      <categories>
+        <category>python正则</category>
+      </categories>
+      <tags>
+        <tag>python正则</tag>
+        <tag>正则表达式</tag>
       </tags>
   </entry>
 </search>
