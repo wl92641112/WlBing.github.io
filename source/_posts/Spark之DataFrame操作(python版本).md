@@ -10,7 +10,7 @@ categories: Spark
 
 
 
-![image-20200506202133004](.\images\hive查询原理.png)
+![hive查询原理](_posts/Spark之DataFrame操作(python版本)/hive查询原理.png)
 
 spark sql则是把根据hive的原理，实现sql转化为spark的查询查询语句。
 
@@ -36,7 +36,7 @@ DataFrame是一种Rdd为基础的分布式数据集合，提供了详细的结�
 
 对比 Rdd是一个一个的 person对象，你是不能看到他的具体结构而DataFrame 是一个以rdd为基础的分布式结构化数据集合。通俗的说rdd是一个关闭的抽屉你看不到里面结构，DataFrame是一个打开的抽屉可以直接看到里面的结构。
 
-![image-20200506210740156](.\images\df和rdd区别.png)
+![df和rdd区](_posts/Spark之DataFrame操作(python版本)/df和rdd区别.png)
 
 # 2. DataFrame创建
 
