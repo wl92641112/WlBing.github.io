@@ -218,3 +218,112 @@ from pyspark.sql import functions as F
 # cache() 缓存
 ```
 
+# 5. Rdd模式转化DataFrame
+
+先在准备一个text 文件 ,text是字符串 无法直接读取文件生成df
+
+![](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20200509001847983.png)
+
+### 5.1 利用反射机制去推断RDD模式
+
+第一个map 分割每一个字符串为一个列表，第二个map转化每一个列表为一个row对象。
+
+![image-20200508233655407](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20200508233655407.png)
+
+```python
+from pyspark import SparkContext,SparkConf
+from pyspark.sql import SparkSession  # SparkSession编写spark sql 的指挥官
+spark = SparkSession.builder.config(conf=SparkConf()).getOrCreate()
+
+# 如果是在pyspark 的交互环境内 直接就又 spark 对象，可以不用设置，第二种创建方法
+from pyspark.sql import SparkSession
+spark_host = "local[*]"
+app_name = "abc"
+spark =SparkSession.builder.master(spark_host).appName(app_name).getOrCreate()
+
+# 生成rdd，然后去推断df
+people=spark.sparkContext.textFile("file:///user-data/home/wangliang/people.text").\
+map(lambda x:x.split(",")).\
+map(lambda p:Row(name=p[0],age=int(p[1])))
+
+# 用rdd生成df 这里可以是 toDF()方法 效果一样
+scheaPeople = spark.createDataFrame(people)
+# 注册临时表,只有创建临时表才可以用sql
+scheaPeople.createOrReplaceTempView("people")
+# 使用sql
+results = spark.sql("select name,age from people where age>20")
+# 展示 结果
+results.show()
++--------+---+
+|    name|age|
++--------+---+
+|zhangsan| 29|
+|    lisi| 30|
++--------+---+
+```
+
+
+
+### 5.2 用编程方式去定义RDD模式
+
+
+
+用编程的模式去定义rdd需要先经过三个步骤
+
+1.第一步：制作表头
+
+2.第二步：制作“表中数据”
+
+3.第三步：把表头和数据拼装起来
+
+![image-20200508231505141](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20200508231505141.png)
+
+```python
+from pyspark.sql.types import StringType,StructField,StructType 
+from pyspark.sql import Row
+# 第一步生成表头
+schemString = "name age"  # 表头字符串 name age 用空格分开
+# StructField 表示列格式，第一个参数为列名，第二个是类型，第三个是 是否可以为空
+fields = [StructField(field_name,StringType(),True) for field_name in schemString.split(" ")]
+#  fields  输出 [StructField(name,StringType,true), StructField(age,StringType,true)]
+# StructType 是用来描述包装表头的，帮你生成整个df 格式
+schema = StructType(fields)
+
+# 生成表中记录
+from pyspark import SparkContext,SparkConf
+from pyspark.sql import SparkSession  # SparkSession编写spark sql 的指挥官
+spark = SparkSession.builder.config(conf=SparkConf()).getOrCreate()
+people=spark.sparkContext.textFile("file:///user-data/home/wangliang/people.text")
+
+# 第一个map 分割每一个字符串为一个列表。此时为rdd
+parts = people.map(lambda x:x.split(",")) 
+# 第二个map转化每一个列表为一个row对象。此时为rdd
+peole = parts.map(lambda p:Row(p[0],p[1].strip()))
+# 拼接表头和表中记录 此时为df
+scheaPeople = spark.createDataFrame(peole,schema)
+
+# df可以用show
+scheaPeople.show()
++--------+---+
+|    name|age|
++--------+---+
+|zhangsan| 29|
+|  wangwu| 10|
+|    lisi| 30|
++--------+---+
+
+# 注册临时表,只有创建临时表才可以用sql
+scheaPeople.createOrReplaceTempView("people")
+# 使用sql
+results = spark.sql("SELECT name,age FROM people")
+# 展示 结果
+results.show()
++--------+---+
+|    name|age|
++--------+---+
+|zhangsan| 29|
+|  wangwu| 10|
+|    lisi| 30|
++--------+---+
+```
+
