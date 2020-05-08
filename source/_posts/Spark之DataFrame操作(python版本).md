@@ -222,13 +222,13 @@ from pyspark.sql import functions as F
 
 先在准备一个text 文件 ,text是字符串 无法直接读取文件生成df
 
-![](Spark之DataFrame操作(python版本)\text文件.png)
+![](Spark之DataFrame操作(https://github.com/wl92641112/wl92641112.github.io/blob/hexo/source/_posts/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/text%E6%96%87%E4%BB%B6.png?raw=true)
 
 ### 5.1 利用反射机制去推断RDD模式
 
 第一个map 分割每一个字符串为一个列表，第二个map转化每一个列表为一个row对象。
 
-![image-20200508233655407](Spark之DataFrame操作(python版本)\转化过程.png)
+![image-20200508233655407](https://github.com/wl92641112/wl92641112.github.io/blob/hexo/source/_posts/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/%E5%88%86%E4%BA%AB%E5%90%88%E8%A1%A8.png?raw=true)
 
 ```python
 from pyspark import SparkContext,SparkConf
@@ -276,7 +276,7 @@ results.show()
 
 3.第三步：把表头和数据拼装起来
 
-![image-20200508231505141](Spark之DataFrame操作(python版本)\分享合表.png)
+![image-20200508231505141](https://github.com/wl92641112/wl92641112.github.io/blob/hexo/source/_posts/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/%E8%BD%AC%E5%8C%96%E8%BF%87%E7%A8%8B.png?raw=true)
 
 ```python
 from pyspark.sql.types import StringType,StructField,StructType 
