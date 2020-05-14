@@ -20,28 +20,33 @@
     var CONFIG = {"hostname":"wl92641112.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="我的code">
-<meta property="og:url" content="https://wl92641112.github.io/index.html">
+  <meta name="description" content="Python中通过Key访问字典，当Key不存在时，会引发‘KeyError’异常。为了避免这种情况的发生，可以使用collections类中的defaultdict()方法来为字典提供默认值。 语法格式：collections.defaultdict([default_factory[, …]]) 该函数返回一个类似字典的对象。defaultdict是Python内建字典类（dict）的一个子类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python操作-collections.defaultdict的使用">
+<meta property="og:url" content="https://wl92641112.github.io/2020/05/14/python%E6%93%8D%E4%BD%9C-collections-defaultdict%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
 <meta property="og:site_name" content="我的code">
+<meta property="og:description" content="Python中通过Key访问字典，当Key不存在时，会引发‘KeyError’异常。为了避免这种情况的发生，可以使用collections类中的defaultdict()方法来为字典提供默认值。 语法格式：collections.defaultdict([default_factory[, …]]) 该函数返回一个类似字典的对象。defaultdict是Python内建字典类（dict）的一个子类">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-14T03:14:56.000Z">
+<meta property="article:modified_time" content="2020-05-14T03:28:20.226Z">
 <meta property="article:author" content="王亮">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://wl92641112.github.io/">
+<link rel="canonical" href="https://wl92641112.github.io/2020/05/14/python%E6%93%8D%E4%BD%9C-collections-defaultdict%E7%9A%84%E4%BD%BF%E7%94%A8/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>我的code</title>
+  <title>python操作-collections.defaultdict的使用 | 我的code</title>
   
 
 
@@ -180,111 +185,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wl92641112.github.io/2020/05/14/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.jpg">
-      <meta itemprop="name" content="王亮">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的code">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" class="post-title-link" itemprop="url">python数据结构-排序</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-14 11:29:02 / 修改时间：12:01:59" itemprop="dateCreated datePublished" datetime="2020-05-14T11:29:02+08:00">2020-05-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">python数据结构</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 冒泡排序 时间复杂度 n方</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mystor</span><span class="params">(num)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(num)<span class="number">-1</span>): <span class="comment"># 一共需要遍历整个列表的 n-1 次</span></span><br><span class="line">        is_stor = <span class="literal">False</span>  <span class="comment"># 记录本次循环是否发生变化,如果没有变化就可以直接退出</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(num)-i<span class="number">-1</span>): <span class="comment"># 每次都要少一共部位位置</span></span><br><span class="line">           <span class="string">"""</span></span><br><span class="line"><span class="string">这里这个j呢就是控制每一次具体的冒泡过程，请你想一想，我们第一次冒泡需要冒几次，也就是说需要比较几次，</span></span><br><span class="line"><span class="string">假如有三个数，那只需要两次就可以了，当下一次时，最后一个</span></span><br><span class="line"><span class="string">已经是有序的了，所以说少冒泡一次，所以这里j每次都会减去i的值，即不用冒“无用之泡泡”</span></span><br><span class="line"><span class="string">"""</span>    </span><br><span class="line">            <span class="keyword">if</span> num[j] &gt; num[j+<span class="number">1</span>]:</span><br><span class="line">                num[j],num[j+<span class="number">1</span>] = num[j+<span class="number">1</span>], num[j]</span><br><span class="line">                is_stor = <span class="literal">True</span>  <span class="comment"># 修改变量，说明发生变化</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> is_stor: <span class="comment"># 没有变化退出</span></span><br><span class="line">            <span class="keyword">return</span> num</span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line">mystor([<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># n平方  每次拿出一个最小的</span></span><br><span class="line">n = [<span class="number">3</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">0</span>,<span class="number">4</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">10</span>,<span class="number">6</span>,<span class="number">3</span>]</span><br><span class="line">x = len(n)</span><br><span class="line"><span class="comment"># 从小到大</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(x): <span class="comment"># n次</span></span><br><span class="line">    mid_id = i</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>,x):</span><br><span class="line">        <span class="keyword">if</span> n[j] &lt;  n[mid_id]: <span class="comment"># 只需要改变一下判断方向</span></span><br><span class="line">            mid_id = j</span><br><span class="line">    n[mid_id],n[i] =n[i], n[mid_id]</span><br><span class="line">print(n)</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 插入排序  时间复杂度 n方</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mystor</span><span class="params">(num)</span>:</span></span><br><span class="line">    n = len(num)  </span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,n):</span><br><span class="line">        cur = num[i]</span><br><span class="line">        j = i - <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> j&gt;=<span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> cur &lt; num[j]:  <span class="comment"># 对比谁大谁小</span></span><br><span class="line">                num[j+<span class="number">1</span>] = num[j]  <span class="comment"># 将 大的数据后移 动</span></span><br><span class="line">                num[j] = cur  <span class="comment"># 将小的数据 插入</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> num</span><br><span class="line">mystor([<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 归并排序   分治思想 时间复杂度 nlogn</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(a,b)</span>:</span></span><br><span class="line">    c = []</span><br><span class="line">    h = j =<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> j &lt; len(a) <span class="keyword">and</span> h&lt;len(b):</span><br><span class="line">        <span class="keyword">if</span> a[j] &lt; b[h]:</span><br><span class="line">            c.append(a[j])</span><br><span class="line">            j+=<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            c.append(b[h])</span><br><span class="line">            h += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> j == len(a):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> b[h:]:</span><br><span class="line">            c.append(i)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> a[j:]:</span><br><span class="line">            c.append(i)</span><br><span class="line">    <span class="keyword">return</span> c</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(listl)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(listl) &lt;=<span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> listl</span><br><span class="line">    mid = len(listl)//<span class="number">2</span></span><br><span class="line">    left = main(listl[:mid])</span><br><span class="line">    right = main(listl[mid:])</span><br><span class="line">    <span class="keyword">return</span> merge(left,right)</span><br><span class="line">main([<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">4</span>])</span><br></pre></td></tr></table></figure>
-
-
-
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 快速排序  分治思想 时间复杂度 nlogn</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span><span class="params">(alist,start,end)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> start &gt;= end:</span><br><span class="line">        <span class="keyword">return</span> alist</span><br><span class="line">    i= start</span><br><span class="line">    j = end</span><br><span class="line">    mid = alist[start]</span><br><span class="line">    <span class="keyword">while</span> i &lt; j:</span><br><span class="line">        <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> alist[j] &gt;= mid:</span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line">        alist[i] =  alist[j]</span><br><span class="line">        <span class="keyword">while</span> i &lt; j <span class="keyword">and</span> alist[i] &lt; mid:</span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">        alist[j] =  alist[i]</span><br><span class="line">    alist[i] = mid</span><br><span class="line">    quick_sort(alist,start,i<span class="number">-1</span>)</span><br><span class="line">    quick_sort(alist,i+<span class="number">1</span>,end)</span><br><span class="line">    <span class="keyword">return</span> alist</span><br><span class="line">quick_sort([<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">4</span>],<span class="number">0</span>,len([<span class="number">1</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">5</span>,<span class="number">4</span>])<span class="number">-1</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-    </div>
-
-    
-    
-    
-    <div>
-        
-      </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -300,10 +204,9 @@
       <meta itemprop="name" content="我的code">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/14/python%E6%93%8D%E4%BD%9C-collections-defaultdict%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-title-link" itemprop="url">python操作-collections.defaultdict的使用</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          python操作-collections.defaultdict的使用
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -326,6 +229,13 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -348,7 +258,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>Python中通过Key访问字典，当Key不存在时，会引发‘KeyError’异常。为了避免这种情况的发生，可以使用collections类中的defaultdict()方法来为字典提供默认值。</p>
+        <p>Python中通过Key访问字典，当Key不存在时，会引发‘KeyError’异常。为了避免这种情况的发生，可以使用collections类中的defaultdict()方法来为字典提供默认值。</p>
 <p>语法格式：<br>collections.defaultdict([default_factory[, …]])</p>
 <p>该函数返回一个类似字典的对象。defaultdict是Python内建字典类（dict）的一个子类，它重写了方法<em>missing</em>(key)，增加了一个可写的实例变量default_factory,实例变量default_factory被missing()方法使用，如果该变量存在，则用以初始化构造器，如果没有，则为None。其它的功能和dict一样。</p>
 <p>第一个参数为default_factory属性提供初始值，默认为None；其余参数包括关键字参数（keyword arguments）的用法，和dict构造器用法一样。</p>
@@ -382,7 +292,6 @@
 
 <p>————————————————<br>版权声明：本文为CSDN博主「yangsong95」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/yangsong95/article/details/82319675" target="_blank" rel="noopener">https://blog.csdn.net/yangsong95/article/details/82319675</a></p>
 
-      
     </div>
 
     
@@ -390,200 +299,57 @@
     
     <div>
         
+          <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束 感谢您的阅读-------------</div>
+    
+</div>
+
+        
       </div>
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>王亮
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://wl92641112.github.io/2020/05/14/python%E6%93%8D%E4%BD%9C-collections-defaultdict%E7%9A%84%E4%BD%BF%E7%94%A8/" title="python操作-collections.defaultdict的使用">https://wl92641112.github.io/2020/05/14/python操作-collections-defaultdict的使用/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+      
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wl92641112.github.io/2020/05/06/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.jpg">
-      <meta itemprop="name" content="王亮">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的code">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/06/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="post-title-link" itemprop="url">python正则表达式</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-06 11:56:32 / 修改时间：11:59:48" itemprop="dateCreated datePublished" datetime="2020-05-06T11:56:32+08:00">2020-05-06</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python%E6%AD%A3%E5%88%99/" itemprop="url" rel="index"><span itemprop="name">python正则</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>22</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="1-正则表达式"><a href="#1-正则表达式" class="headerlink" title="1.正则表达式 - (?!), (?:), (?=)"></a>1.正则表达式 - (?!), (?:), (?=)</h1>
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/05/06/python%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="python正则表达式">
+      <i class="fa fa-chevron-left"></i> python正则表达式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/14/python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E6%8E%92%E5%BA%8F/" rel="next" title="python数据结构-排序">
+      python数据结构-排序 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
-
-    
-    
-    
-    <div>
-        
-      </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://wl92641112.github.io/2020/05/06/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/author.jpg">
-      <meta itemprop="name" content="王亮">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="我的code">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/06/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/" class="post-title-link" itemprop="url">Spark之DataFrame操作(python版本)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-06 00:08:09" itemprop="dateCreated datePublished" datetime="2020-05-06T00:08:09+08:00">2020-05-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-09 01:08:30" itemprop="dateModified" datetime="2020-05-09T01:08:30+08:00">2020-05-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Spark/" itemprop="url" rel="index"><span itemprop="name">Spark</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>7.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>7 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="0-Spark-SQL简介"><a href="#0-Spark-SQL简介" class="headerlink" title="0.Spark SQL简介"></a>0.Spark SQL简介</h1><p>说到Spark sql 就要说的一个 数据仓库技术hive，hive是为了帮助Hadoop实现sql查询的一种技术，hive本身不存数据，数据是在底层的hdfs里面，hive是sql查询是转化为底层的mapreduce作业进行。如图所示 hive的执行原理</p>
-<p><img src="https://github.com/wl92641112/wl92641112.github.io/blob/hexo/source/_posts/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/hive%E6%9F%A5%E8%AF%A2%E5%8E%9F%E7%90%86.png?raw=true" alt="hive查询原理"></p>
-<p>spark sql则是把根据hive的原理，实现sql转化为spark的查询查询语句。</p>
-<p>spark是线程级别的并行，而MapReduce是进程级并行。</p>
-<p>spark sql 不受hive限制，只是兼容HIve。</p>
-<p>spark sql应用于DataFrame(带有Schema[模式]信息的RDD)，使用户可以在park sql中执行sql语句，数据即可以来着rdd，也可以是Hive,HDFS,Cassandra等外部数据源，也可以是json格式数据。 目前支持java，scala，python。</p>
-<p>spark sql就是使用DataFrame帮助融合多个数据源，可以对外部和内部各种数据源执行各种操作，其次，可以支持大量的数据源和数据分析算法，spark sql 可以融合传统关系数据库的结构化数据管理能力和机器学习的数据处理能力。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/06/Spark%E4%B9%8BDataFrame%E6%93%8D%E4%BD%9C(python%E7%89%88%E6%9C%AC)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-    <div>
-        
-      </div>
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
